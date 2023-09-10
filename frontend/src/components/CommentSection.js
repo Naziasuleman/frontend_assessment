@@ -35,7 +35,7 @@ const CommentSection = () => {
 
   return (
     <div className="h-screen w-screen bg-bodybg relative">
-      <div className="font-poppins tracking-wider text-left w-80 md:w-[656px] h-auto rounded-lg absolute left-1/2 top-9 transform -translate-x-1/2 flex flex-col gap-3">
+      <div className="font-poppins tracking-wider text-left w-80 lg:w-[654px] h-auto rounded-lg absolute left-1/2 top-9 transform -translate-x-1/2 flex flex-col gap-3">
         <h6 className="font-bold text-xl">Comments</h6>
 
         <Comment
