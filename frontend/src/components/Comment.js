@@ -38,9 +38,11 @@ const Comment = ({ user, text, isNew, onRemove }) => {
   };
 
   const handleReplySubmit = () => {
-    setReplyText("");
-    setReplyTexts([...replyTexts, replyText]);
-    setShowNewComment(true);
+    if (replyText.trim() !== "") {
+      setReplyText("");
+      setReplyTexts([...replyTexts, replyText]);
+      setShowNewComment(true);
+    }
   };
 
   return (
@@ -129,7 +131,10 @@ const Comment = ({ user, text, isNew, onRemove }) => {
                   <p className="font-light text-lightgray">{likeCountInner}</p>
                 </button>
                 <div className="w-1 h-1 rounded-full bg-gray pr-1" />
-                <button className="text-red font-medium" onClick={handleRemoveClick}>
+                <button
+                  className="text-red font-medium"
+                  onClick={handleRemoveClick}
+                >
                   Remove
                 </button>
               </div>
