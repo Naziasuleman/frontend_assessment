@@ -72,7 +72,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
             )}
             <p className="font-light text-lightgray">{likeCount}</p>
           </div>
-          <div className="w-1 h-1 rounded-full bg-gray" />
+          <div className="w-1 h-1 rounded-full bg-gray pl-1" />
           {isNew ? (
             <p className="text-red font-medium" onClick={handleRemoveClick}>
               Remove
@@ -131,13 +131,15 @@ const Comment = ({ user, text, isNew, onRemove }) => {
           </div>
         )}
 
-        {showReplyInput && (
-          <CommentInput
-            onSubmit={handleReplySubmit}
-            value={replyText}
-            onChange={(e) => setReplyText(e.target.value)}
-          />
-        )}
+        <div className="pt-4">
+          {showReplyInput && (
+            <CommentInput
+              onSubmit={handleReplySubmit}
+              value={replyText}
+              onChange={(e) => setReplyText(e.target.value)}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
