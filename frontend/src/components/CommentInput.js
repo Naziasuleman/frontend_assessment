@@ -12,12 +12,12 @@ const CommentInput = ({ onSubmit, value, onChange }) => {
         onChange={onChange}
         value={value}
       />
-      <div
+      <button
         className="absolute top-0 right-0 h-full flex items-center pr-3"
         onClick={onSubmit}
       >
         <FontAwesomeIcon icon={faPaperPlane} className="text-blue w-4 h-4" />
-      </div>
+      </button>
     </div>
   );
 };

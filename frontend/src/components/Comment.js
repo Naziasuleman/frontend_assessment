@@ -61,7 +61,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
         </p>
         <p className="font-light text-gray">{text}</p>
         <div className="w-28 h-7 pt-2 flex gap-4 items-center justify-between">
-          <div className="w-7 h-5 flex gap-1" onClick={handleLikeClick}>
+          <button className="w-7 h-5 flex gap-1" onClick={handleLikeClick}>
             {isLiked ? (
               <FontAwesomeIcon icon={faHeart} className="text-red w-5 h-5" />
             ) : (
@@ -71,16 +71,22 @@ const Comment = ({ user, text, isNew, onRemove }) => {
               />
             )}
             <p className="font-light text-lightgray">{likeCount}</p>
-          </div>
+          </button>
           <div className="w-1 h-1 rounded-full bg-gray pl-1" />
           {isNew ? (
-            <p className="text-red font-medium" onClick={handleRemoveClick}>
+            <button
+              className="text-red font-medium"
+              onClick={handleRemoveClick}
+            >
               Remove
-            </p>
+            </button>
           ) : (
-            <p className="text-blue font-medium" onClick={handleReplyClick}>
+            <button
+              className="text-blue font-medium"
+              onClick={handleReplyClick}
+            >
               Reply
-            </p>
+            </button>
           )}
         </div>
         {showNewComment && (
@@ -105,7 +111,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
               ))}
 
               <div className="w-28 h-7 pt-2 flex gap-4 items-center justify-between">
-                <div
+                <button
                   className="w-7 h-5 flex gap-1"
                   onClick={handleLikeClickInner}
                 >
@@ -121,11 +127,11 @@ const Comment = ({ user, text, isNew, onRemove }) => {
                     />
                   )}
                   <p className="font-light text-lightgray">{likeCountInner}</p>
-                </div>
+                </button>
                 <div className="w-1 h-1 rounded-full bg-gray pr-1" />
-                <p className="text-red font-medium" onClick={handleRemoveClick}>
+                <button className="text-red font-medium" onClick={handleRemoveClick}>
                   Remove
-                </p>
+                </button>
               </div>
             </div>
           </div>
