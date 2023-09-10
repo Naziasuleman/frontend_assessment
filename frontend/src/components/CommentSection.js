@@ -50,6 +50,7 @@ const CommentSection = () => {
           user={{ name: "Tania", image: user3 }}
           text="Hey bud, welcome back to home. It's so long to see you back again. Would love to hear the traveling stories of yours. Your or my place?"
         />
+        {/* new comment */}
         {comments.map((comment, index) => (
           <Comment
             key={index}
@@ -60,6 +61,7 @@ const CommentSection = () => {
             addNewComment={addNewComment}
           />
         ))}
+        {/* Comment input bar */}
         <div className="bg-white shadow-3xl p-3 gap-3">
           <CommentInput
             onSubmit={handleCommentSubmit}

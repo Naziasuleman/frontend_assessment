@@ -91,6 +91,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
             </button>
           )}
         </div>
+        {/* replies display here */}
         {showNewComment && (
           <div className=" w-56 md:w-[584px] p-3 flex gap-3 mt-3">
             <img
