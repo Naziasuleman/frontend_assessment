@@ -8,7 +8,7 @@ const CommentInput = ({ onSubmit, value, onChange }) => {
       <input
         type="text"
         className="bg-inputbg h-11 w-full p-3 rounded-[5px] placeholder-gray font-light text-sm tracking-wider"
-        placeholder="Write Your Comment"
+        placeholder="Write your comment"
         onChange={onChange}
         value={value}
       />

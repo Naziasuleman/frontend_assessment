@@ -56,7 +56,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
         <p className="font-medium flex gap-2.5">
           {user.name}
           {isNew && (
-            <span className="text-xs pl-1 pr-1 h-3.5 w-6 bg-lightpurple bg-opacity-10 text-purple rounded-sm">
+            <span className="text-xs pl-1 pr-1 font-light h-3.5 w-6 bg-lightpurple bg-opacity-10 text-purple rounded-sm">
               ME
             </span>
           )}
@@ -102,7 +102,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
             <div className="text-sm h-auto  flex flex-col gap-1">
               <p className="font-medium flex gap-2.5">
                 John Doe
-                <span className="text-xs pl-1 pr-1 h-3.5 w-6 bg-lightpurple bg-opacity-10 text-purple rounded-sm">
+                <span className="text-xs font-light pl-1 pr-1 h-3.5 w-6 bg-lightpurple bg-opacity-10 text-purple rounded-sm">
                   ME
                 </span>
               </p>
@@ -143,7 +143,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
           </div>
         )}
 
-        <div className="pt-4">
+        <div className="pt-3 pl-4">
           {showReplyInput && (
             <CommentInput
               onSubmit={handleReplySubmit}
