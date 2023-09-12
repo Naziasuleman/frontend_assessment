@@ -15,28 +15,33 @@ const Comment = ({ user, text, isNew, onRemove }) => {
   const [isLikedInner, setIsLikedInner] = useState(false);
   const [likeCountInner, setLikeCountInner] = useState(0);
 
-  const handleLikeClick = () => {
-    setIsLiked(!isLiked);
-    setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+  const handleLikeClick = (isInner) => {
+    if (isInner) {
+      setIsLikedInner(!isLikedInner);
+      setLikeCountInner(isLikedInner ? likeCountInner - 1 : likeCountInner + 1);
+    } else {
+      setIsLiked(!isLiked);
+      setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+    }
   };
-
-  const handleLikeClickInner = () => {
-    setIsLikedInner(!isLikedInner);
-    setLikeCountInner(isLikedInner ? likeCountInner - 1 : likeCountInner + 1);
-  };
-
+  // show replyInput after reply
   const handleReplyClick = () => {
     setShowReplyInput(!showReplyInput);
   };
 
+  // remove reply
   const handleRemoveClick = () => {
     if (onRemove) {
       onRemove();
     }
     setShowNewComment(false);
     setReplyTexts([]);
+    if (isLikedInner) {
+      setIsLikedInner(!isLikedInner);
+      setLikeCountInner(likeCountInner - 1);
+    }
   };
-
+  // submit reply
   const handleReplySubmit = () => {
     if (replyText.trim() !== "") {
       setReplyText("");
@@ -61,9 +66,12 @@ const Comment = ({ user, text, isNew, onRemove }) => {
             </span>
           )}
         </p>
-        <p className="font-light text-gray">{text}</p>
+        <p className="font-light text-gray ">{text}</p>
         <div className="w-28 h-7 pt-2 flex gap-4 items-center justify-between">
-          <button className="w-7 h-5 flex gap-1" onClick={handleLikeClick}>
+          <button
+            className="w-7 h-5 flex gap-1"
+            onClick={() => handleLikeClick(false)}
+          >
             {isLiked ? (
               <FontAwesomeIcon icon={faHeart} className="text-red w-5 h-5" />
             ) : (
@@ -108,7 +116,10 @@ const Comment = ({ user, text, isNew, onRemove }) => {
               </p>
 
               {replyTexts.map((reply, index) => (
-                <p key={index} className="text-gray font-light">
+                <p
+                  key={index}
+                  className="text-gray w-44 md:w-[530px] font-light"
+                >
                   {reply}
                 </p>
               ))}
@@ -116,7 +127,7 @@ const Comment = ({ user, text, isNew, onRemove }) => {
               <div className="w-28 h-7 pt-2 flex gap-4 items-center justify-between">
                 <button
                   className="w-7 h-5 flex gap-1"
-                  onClick={handleLikeClickInner}
+                  onClick={() => handleLikeClick(true)}
                 >
                   {isLikedInner ? (
                     <FontAwesomeIcon
